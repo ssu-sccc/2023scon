@@ -1,0 +1,25 @@
+\def\probno{A}
+\def\probtitle{정보섬의 대중교통}
+
+\section{\probno{}. \probtitle{}}
+
+\begin{frame} % No title at first slide
+    \sectiontitle{\probno{}}{\probtitle{}}
+    \sectionmeta{
+        \texttt{math, implementation}\\
+        출제진 의도 -- \textbf{\color{acbronze}Easy}
+    }
+    \begin{itemize}
+        \item 처음 푼 팀: \textbf{반드시 가야지요}, 2분
+        \item 처음 푼 팀(Open Contest): \textbf{asdf1705}, 1분
+        \item 출제자: 박찬솔
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{}}
+    \begin{itemize}
+        \item $N \leq B$ 이므로 항상 지하철을 놓치지 않고 이용할 수 있습니다.
+        \item 따라서 $N$의 값은 정답에 영향을 미치지 않습니다.
+        \item $A < B$ 이면 \texttt{Bus}, $A > B$ 이면 \texttt{Subway}, $A = B$ 이면 \texttt{Anything}을 출력하면 됩니다.
+    \end{itemize}
+\end{frame}

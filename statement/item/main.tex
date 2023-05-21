@@ -1,0 +1,51 @@
+\def\probtitle{아이템}
+\def\probno{J}
+
+\begin{problem}{\probno{}. \probtitle{}}
+
+좌우로 무한히 긴 수직선 위에 $N$개의 아이템이 떨어져 있다. $i$번째 아이템의 위치는 $X_i$이며, 여러 개의 아이템이 한 곳에 있을 수 있다. 현재 위치 $0$에 있는 주원이는 최대한 많은 개수의 아이템을 줍고 싶다.
+
+처음에 주원이는 한 번 이동할 때마다 $1$씩 왼쪽 또는 오른쪽으로 이동할 수 있다. 단, 아이템을 하나 주울 때마다 이동 거리가 2배씩 늘어난다. 즉, 현재까지 획득한 아이템이 $k$개라면 수직선 위에서 한 번 이동할 때마다 $2^k$씩 왼쪽 또는 오른쪽으로 이동할 수 있다. 단, 이동 중에는 중간에 멈출 수 없다. 
+
+아이템은 해당 아이템이 존재하는 위치에 멈춰야 주울 수 있으며, 아이템이 있는 위치에 멈췄더라도 아이템을 줍지 않을 수 있다. 아이템을 주우면 해당 아이템은 그 자리에서 사라진다.
+
+주울 수 있는 아이템의 최대 개수를 구해보자.
+
+\InputFile
+
+첫째 줄에 아이템의 개수 $N$이 주어진다.
+
+둘째 줄에 아이템의 위치 $X_1, X_2, \cdots, X_N$이 공백으로 구분되어 주어진다.
+
+\OutputFile
+
+주울 수 있는 아이템의 최대 개수를 출력한다.
+
+\Constraints
+
+\begin{itemize}[noitemsep]
+    \item $1 \leq N \leq 2 \times 10^5$
+    \item $0 \leq X_i \leq 10^{18}$ $(1 \le i \le N)$
+    \item 입력으로 주어지는 수는 모두 정수이다.
+\end{itemize}
+
+\Example
+
+\begin{example}
+    \exmpfile{./example/01.in.txt}{./example/01.out.txt}%
+    \exmpfile{./example/02.in.txt}{./example/02.out.txt}%
+    \exmpfile{./example/03.in.txt}{./example/03.out.txt}%
+\end{example}
+
+첫 번째 예시에서 $0 \rightarrow 1 \rightarrow 2 \rightarrow \textbf{3} \rightarrow \textbf{1} \rightarrow 5 \rightarrow \textbf{9}$ 순서로 이동해서 3개의 아이템을 주울 수 있다. 굵게 표시된 수가 아이템을 주운 시점이다.
+
+두 번째 예시에서 $0 \rightarrow 1 \rightarrow \cdots \rightarrow 4 \rightarrow \textbf{5} \rightarrow 7 \rightarrow \cdots \rightarrow 37 \rightarrow \textbf{39} \rightarrow 35  \rightarrow \cdots \rightarrow 23 \rightarrow \textbf{19} \rightarrow \textbf{27} \rightarrow \textbf{11}$ 순서로 이동해서 5개의 아이템을 주울 수 있다. 굵게 표시된 수가 아이템을 주운 시점이다.
+
+% \newpage
+
+\Notes
+입출력 양이 많으므로 문제지 2--4페이지의 언어 가이드에 있는 빠른 입출력을 사용하는 것을 권장한다.
+
+
+
+\end{problem}

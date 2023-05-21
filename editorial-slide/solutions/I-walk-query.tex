@@ -1,0 +1,54 @@
+\def\probno{I}
+\def\probtitle{산책과 쿼리}
+
+\section{\probno{}. \probtitle{}}
+
+\begin{frame} % No title at first slide
+    \sectiontitle{\probno{}}{\probtitle{}}
+    \sectionmeta{
+        \texttt{graphs, disjoint\_set}\\
+        출제진 의도 -- \textbf{\color{acplatinum}Challenging}
+    }
+    \begin{itemize}
+        \item 처음 푼 팀: \textbf{스콘빨리먹기대회우승팀}, 110분
+        \item 처음 푼 팀(Open Contest): \textbf{Lawali}, 22분
+        \item 출제자: 이성서
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{}}
+    \begin{itemize}
+        \item 어떤 자취방 $u$의 산책 자유도가 높은지 판별하는 방법을 생각해 봅시다.
+
+        \begin{itemize}
+            \item $u$를 지나는 산책로가 있다면, 그 산책로를 왕복해서 모든 짝수를 만들 수 있음
+            \item $u$에서 홀수 사이클로 갈 수 있다면, 아래 방법으로 충분히 큰 모든 홀수를 만들 수 있음
+                \begin{enumerate}
+                    \item $u$에서 홀수 크기 사이클로 이동
+                    \item 홀수 크기 사이클을 따라서 한 바퀴 이동
+                    \item 다시 $u$로 이동
+                    \item $u$를 지나는 산책로 왕복
+                \end{enumerate}
+        \end{itemize}
+        \item 따라서 각 정점을 포함하는 컴포넌트에 홀수 사이클이 있는지 판별하면 됩니다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{}}
+    \begin{itemize}
+        \item 각 정점 $v$를 두 개의 정점 $v_0$과 $v_1$로 분할합시다.
+        \item $v_0, v_1$은 각각 짝수 시각과 홀수 시각에 $v$에 위치함을 의미합니다.
+        \item 만약 $v_0$에서 $v_1$로 이동할 수 있다면 $v$는 산책의 자유도가 높은 정점입니다.
+        \item 이러한 $v$를 포함하는 연결 요소를 ``홀수 연결 요소"라고 합시다.
+        \item 홀수 연결 요소 안에 있는 모든 정점은 정답에 1씩 기여합니다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{}}
+    \begin{itemize}
+        \item 쿼리로 두 정점의 번호 $a, b$가 주어지면, $a_0$과 $b_1$, $a_1$과 $b_0$을 연결합시다.
+        \item 이후 $a_0$과 $a_1$이 연결되었는지 확인하고 정답을 갱신하면 됩니다.
+        \item 이 작업은 각 집합의 크기를 관리하는 Union-Find를 이용해 빠르게 수행할 수 있습니다.
+        \item 전체 시간 복잡도는 $O(N + Q \log N)$입니다.
+    \end{itemize}
+\end{frame}

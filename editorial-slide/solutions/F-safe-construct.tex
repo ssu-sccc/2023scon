@@ -1,0 +1,72 @@
+\def\probno{F}
+\def\probtitle{안전한 건설 계획}
+
+\section{\probno{}. \probtitle{}}
+
+\begin{frame} % No title at first slide
+    \sectiontitle{\probno{}}{\probtitle{}}
+    \sectionmeta{
+        \texttt{graphs, greedy}\\
+        출제진 의도 -- \textbf{\color{acsilver}Medium}
+    }
+    \begin{itemize}
+        \item 처음 푼 팀: \textbf{스콘빨리먹기대회우승팀}, 24분
+        \item 처음 푼 팀(Open Contest): \textbf{xiaowuc1}, 18분
+        \item 출제자: 이성서
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{}}
+    \begin{itemize}
+        \item 두 가지 풀이가 존재합니다.
+
+        \begin{enumerate}
+            \item 그리디 기법을 이용한 $O(N^5)$ 풀이
+            \item 그래프 탐색을 이용한 $O(N+M)$ 풀이
+        \end{enumerate}
+
+        \item 차례대로 설명합니다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{} - 그리디 기법}
+    \begin{itemize}
+        \item 풀이 1.
+        \item 삼각형을 적당한 순서로 추가해서 완전 그래프를 만드는 문제입니다.
+        \item 비용이 적게 드는 연산부터 진행하는 그리디 전략을 이용해 해결할 수 있습니다.
+        \item 완전 그래프가 될 때까지 아래 과정을 반복하면 됩니다.
+
+        \begin{enumerate}
+            \item 비용이 0인 보강 작업을 할 수 있으면 아무거나 하나 찾아서 진행
+            \item 그렇지 않은 경우, 비용이 1인 보강 작업을 아무거나 하나 찾아서 진행
+        \end{enumerate}
+
+        \item 매번 수행할 보강 작업을 $O(N^3)$ 시간에 찾을 수 있습니다.
+        \item 보강 작업은 최대 $O(N^2)$번 진행하므로 전체 시간 복잡도는 $O(N^5)$입니다.
+        \item $N \leq 40$으로 입력 크기가 작기 때문에 시간 제한 안에 문제를 해결할 수 있습니다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{} - 그래프 탐색}
+    \begin{itemize}
+        \item 풀이 2.
+        \item 정답의 상한과 하한을 찾아 봅시다.
+        \vspace{3mm}
+        \item 만약 그래프가 연결 그래프라면, 0의 비용으로 완전 그래프를 만들 수 있습니다.
+        \item 연결 요소가 여러 개라면, 간선이 하나 이상 있는 연결 요소 $A$와 임의의 연결 요소 $B$를\\
+        비용이 1인 보강 작업을 통해 연결할 수 있습니다.
+        \item 따라서 정답은 (연결 요소의 개수) - 1 이하입니다.
+        \vspace{3mm}
+        \item 비용이 0인 보강 작업은 그래프의 연결 요소의 개수를 줄일 수 없습니다.
+        \item 비용이 1인 보강 작업은 그래프의 연결 요소의 개수를 최대 1 만큼 줄일 수 있습니다.
+        \item 따라서 정답은 (연결 요소의 개수) - 1 이상입니다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{} - 그래프 탐색}
+    \begin{itemize}
+        \item 정답의 상한과 하한이 같으므로, 정답은 정확히 (연결 요소의 개수) - 1 입니다.
+        \item DFS/BFS 등의 그래프 탐색 알고리즘을 이용하면 $O(N+M)$ 시간에 정답을 구할 수 있습니다.
+        \item 이 풀이가 성립함을 이용해 그리디 기법 풀이의 정당성을 증명할 수 있습니다.
+    \end{itemize}
+\end{frame}

@@ -1,0 +1,131 @@
+\include{header}
+\usetikzlibrary{arrows.meta,matrix,decorations.pathreplacing}
+
+\title{2023 SCON}
+\subtitle{}
+\author{Official Solutions}
+\date{2023년 5월 20일}
+
+\begin{document}
+    \setcounter{framenumber}{-1}
+    \frame{\titlepage}
+
+    \begin{frame} %
+        \textbf{주최} %
+        \begin{itemize}
+            \item 숭실대학교 IT대학
+        \end{itemize}
+        \vspace{3mm}
+        \textbf{주관} %
+        \begin{itemize}
+            \item 컴퓨터학부 문제해결 소모임 SCCC
+        \end{itemize}
+        \vspace{3mm}
+        \textbf{운영} %
+        \begin{itemize}
+            \item 박찬솔 \tabto{1.2cm} \texttt{chansol } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+            \item 나정휘 \tabto{1.2cm} \texttt{jhnah917} \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+        \end{itemize}
+        \vspace{3mm}
+        
+    \end{frame}
+    
+    \begin{frame}
+        \textbf{출제} %
+        \begin{itemize}
+            \item 나정휘 \tabto{1.2cm} \texttt{jhnah917} \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+            \item 박찬솔 \tabto{1.2cm} \texttt{chansol } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+            \item 오주원 \tabto{1.2cm} \texttt{kyo20111} \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 소프트웨어학부}
+            \item 이성서 \tabto{1.2cm} \texttt{edenooo } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+        \end{itemize}
+        \vspace{3mm}
+        \textbf{검수} %
+        \begin{itemize}
+            \item 김준겸 \tabto{1.2cm} \texttt{ryute   } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 고려대학교 컴퓨터학과}
+            \item 김준서 \tabto{1.2cm} \texttt{junseo  } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 한양대학교 컴퓨터소프트웨어학부}
+            \item \adjustbox{scale={.66}{1}}{白崎杏子} \tabto{1.2cm} \texttt{cologne } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 開拓団訓練所}
+        \end{itemize}
+    \end{frame}
+    
+    \begin{frame}%
+        \textbf{대회 현장 스태프} %
+        \begin{itemize}
+            \item 김건중 \tabto{1.2cm} \texttt{9ada       } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+            \item 나세빈 \tabto{1.2cm} \texttt{you08045   } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+            \item 남혜민 \tabto{1.2cm} \texttt{nam14785   } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+            \item 박상철 \tabto{1.2cm} \texttt{eric2057   } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+            \item 박서은 \tabto{1.2cm} \texttt{pts0414    } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+            \item 신종원 \tabto{1.2cm} \texttt{shinjw4675 } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 전자정보공학부}
+            \item 이계상 \tabto{1.2cm} \texttt{           } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 소프트웨어학부}
+            \item 진민성 \tabto{1.2cm} \texttt{m4ushold   } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 소프트웨어학부}
+            \item 최원석 \tabto{1.2cm} \texttt{rudeore0928} \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}%
+        \textbf{명찰/상장 디자인} %
+        \begin{itemize}
+            \item 권욱제 \tabto{1.2cm} \texttt{wookje  } \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+        \end{itemize}
+        \vspace{3mm}
+        \textbf{문제지 및 풀이 슬라이드 제작} %
+        \begin{itemize}
+            \item 나정휘 \tabto{1.2cm} \texttt{jhnah917} \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+        \end{itemize}
+        \vspace{3mm}
+        \textbf{문제 일러스트} %
+        \begin{itemize}
+            \item 나정휘 \tabto{1.2cm} \texttt{jhnah917} \tabto{4cm} {\color{gray} } \tabto{8cm} {\color{gray} 숭실대학교 컴퓨터학부}
+        \end{itemize}
+    \end{frame}
+    
+    \begin{frame}{\textbf{Sponsors}}
+        \begin{center}
+            \includegraphics[width=0.36\linewidth]{images/logos/mobis.jpg}\\
+            \vspace{10mm}
+            \includegraphics[width=0.36\linewidth]{images/logos/startlink.png}
+        \end{center}
+    \end{frame}
+    
+    \begin{frame} % No title at first slide
+        \begin{center}
+            \begin{tabular}{cl|l|l}
+                \hline
+                문제 & & 의도한 난이도 & 출제자 \\
+                \hline
+                \hline
+                \textbf{A} & 정보섬의 대중교통 & \textbf{\color{acbronze} Easy} & 박찬솔 \\
+                \textbf{B} & 팀명 정하기 & \textbf{\color{acbronze} Easy} & 나정휘 \\
+                \textbf{C} & 등차수열의 합 & \textbf{\color{acbronze} Easy} & 오주원 \\
+                \textbf{D} & 선택 정렬의 이동 거리 & \textbf{\color{acsilver} Medium} & 나정휘 \\
+                \textbf{E} & prlong longf & \textbf{\color{acsilver} Medium} & 이성서 \\
+                \textbf{F} & 안전한 건설 계획 & \textbf{\color{acsilver} Medium} & 이성서 \\
+                \textbf{G} & Traveling SCCC President & \textbf{\color{acgold} Hard} & 나정휘 \\
+                \textbf{H} & SCCC 신입 부원 모집하기 & \textbf{\color{acgold} Hard} & 박찬솔 \\
+                \textbf{I} & 산책과 쿼리 & \textbf{\color{acplatinum} Challenging} & 이성서 \\
+                \textbf{J} & 아이템 & \textbf{\color{acplatinum} Challenging} & 오주원 \\
+                % \textbf{G} & 인공 신경망 (예시) & \textbf{\color{acgold} Hard} & 나정휘 \\ % 핸들 넣을 거면 \texttt{jhnah917}
+                % \textbf{X} & 적당히 긴 이름이 필요한데 뭐라고 & \textbf{\color{acplatinum} Challenging} & 박찬솔 \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{frame}
+    
+    \import{solutions/}{A-public-transport.tex}
+    \import{solutions/}{B-team-name.tex}
+    \import{solutions/}{C-seq-sum.tex}
+    \import{solutions/}{D-selection-sort.tex}
+    \import{solutions/}{E-printf.tex}
+    \import{solutions/}{F-safe-construct.tex}
+    \import{solutions/}{G-tsp.tex}
+    \import{solutions/}{H-sccc-recruit.tex}
+    \import{solutions/}{I-walk-query.tex}
+    \import{solutions/}{J-item.tex}
+    
+    \begin{frame} % No title
+        \begin{itemize}
+            \item 대회 문제의 모범 코드는 https://sccc.kr/scon/2023 에서 확인할 수 있습니다.
+            \item 감사합니다.
+        \end{itemize}
+    \end{frame}
+\end{document}

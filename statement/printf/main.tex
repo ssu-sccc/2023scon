@@ -1,0 +1,64 @@
+\def\probtitle{prlong longf}
+\def\probno{E}
+
+\begin{problem}{\probno{}. \probtitle{}}
+
+성서는 \textbf{\textcolor{acbronze}{Bronze 5}} 난이도의 문제를 풀다가 \textbf{\textcolor{wared}{틀렸습니다}}를 받았다.
+
+계산 도중 수가 너무 커져서 오버플로우가 발생했다고 생각한 성서는 코드 에디터의 ``찾기 및 바꾸기" 기능을 사용해서 코드의 \texttt{int}를 모두 동시에 \texttt{long long}으로 바꾸었는데, \texttt{printf}도 모두 \texttt{prlong longf}로 바뀌는 사고가 일어났다!
+
+\begin{minted}
+[frame=lines,baselinestretch=1.2,bgcolor=white,linenos]
+{cpp}
+#include <stdio.h>
+
+long long main(){
+    long long n, res = 1;
+    scanf("%d", &n);
+    for(long long i = 1; i <= n; i++){
+        res *= i;
+    }
+    prlong longf("%d\n", res);
+    return 0;
+}
+\end{minted}
+
+
+스스로 코드를 고치기 귀찮았던 성서는 대회 참가자들에게 바뀐 코드를 주고 초기 상태로 복원해 달라고 부탁하려고 했지만, 주어진 코드에 따라 복원 방법이 유일하지 않을 수 있다는 사실을 깨달았다. 좋은 문제 아이디어를 발견한 성서는 2023 SCON에 다음과 같은 문제를 출제했다.
+
+모든 \texttt{int}가 \texttt{longlong}으로 바뀐 문자열이 주어진다. 가능한 원래 문자열은 모두 몇 가지인가?
+
+\InputFile
+
+첫째 줄에 바뀐 문자열의 길이 $N$이 주어진다.
+
+둘째 줄에 \texttt{int}가 모두 \texttt{longlong}으로 바뀐 길이 $N$의 문자열이 주어진다.
+
+\OutputFile
+
+문자열의 초기 상태로 가능한 경우의 수를 출력한다.
+
+\Constraints
+
+\begin{itemize}[noitemsep]
+    \item $1 \leq N \leq 80$
+    \item 주어진 문자열의 모든 문자는 알파벳 소문자이고, 공백을 포함하지 않는다.
+    \item 주어진 문자열은 \texttt{int}를 부분 문자열로 갖지 않는다.
+\end{itemize}
+
+\Example
+
+\begin{example}
+    \exmpfile{./example/01.in.txt}{./example/01.out.txt}%
+    \exmpfile{./example/02.in.txt}{./example/02.out.txt}%
+    \exmpfile{./example/03.in.txt}{./example/03.out.txt}%
+\end{example}
+
+첫 번째 예시에서 가능한 초기 상태는 \texttt{printlongf}, \texttt{prlongintf}, \texttt{prlonglonglongf}로 총 3가지이다.
+
+% \newpage
+
+% \Notes
+
+
+\end{problem}

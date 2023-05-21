@@ -1,0 +1,159 @@
+{
+    \indent
+    \Large
+    
+    언어 가이드
+}
+
+\begin{itemize}[noitemsep]
+
+    \item 채점은 Intel Xeon E5-2666v3 프로세서를 사용하는 AWS EC2 c4.large 인스턴스에서 진행합니다.
+    \item 채점 서버의 운영체제는 Ubuntu 16.04.7 LTS 입니다.
+    \item 아래 언어 중 원하는 언어를 선택해 사용할 수 있습니다.
+    
+    \begin{itemize}[noitemsep]
+        \item C11: \texttt{gcc 11.1.0} % \\
+        % 컴파일: \texttt{gcc Main.c -o Main -O2 -Wall -lm -static -std=gnu11}\\\texttt{-DONLINE\_JUDGE -DBOJ}\\
+        % 실행: \texttt{./Main}
+        \item C++17: \texttt{g++ 11.1.0} % \\
+        % 컴파일: \texttt{g++ Main.cc -o Main -O2 -Wall -lm -static -std=gnu++17}\\\texttt{-DONLINE\_JUDGE -DBOJ}\\
+        % 실행: \texttt{./Main}
+        \item Java 15: \texttt{OpenJDK version "16.0.1" 2021-04-20} % \\
+        % 컴파일: \texttt{javac -release 15 -J-Xms1024m -J-Xmx1920m -J-Xss512m}\\\texttt{-encoding UTF-8 Main.java}\\
+        % 실행: \texttt{java -Xms1024m -Xmx1920m -Xss512m -Dfile.encoding=UTF-8 -XX:+UseSerialGC}\\\texttt{-DONLINE\_JUDGE=1 -DBOJ=1 Main}
+        \item Python 3: \texttt{Python 3.11.0} % \\
+        % 컴파일: \texttt{python3 -W ignore -c "import py\_compile; py\_compile.compile(r'Main.py')"}\\
+        % 실행: \texttt{python3 -W ignore Main.py}
+        \item PyPy3: \texttt{Python 3.9.12, PyPy 7.3.9 with GCC 10.2.1 20210130 (Red Hat 10.2.1-11)} % \\
+        % 컴파일: \texttt{pypy3 -W ignore -c "import py\_compile; py\_compile.compile(r'Main.py')"}\\
+        % 실행: \texttt{pypy3 -W ignore Main.py}
+        \item 컴파일과 실행 옵션은 \texttt{https://help.acmicpc.net/language/info}에서 확인할 수 있습니다.
+        
+    \end{itemize}
+
+    \item C11/C++17에서 \texttt{scanf\_s}와 \texttt{Windows.h}등의 비표준 함수를 사용할 수 없습니다.
+    \item Java를 사용하는 경우, \texttt{main} 메소드를 포함하는 클래스의 이름은 \texttt{Main}이어야 합니다.
+    \item Python에서 \texttt{numpy}와 같은 외부 모듈을 사용할 수 없습니다.
+    \item 채점 사이트에서 컴파일 에러를 받은 경우, `컴파일 에러' 글씨를 누르면 오류가 발생한 위치를 볼 수 있습니다.
+
+    \item 아래 코드는 표준 입력(standard input)을 통해 공백으로 구분된 두 정수를 입력으로 받아서 표준 출력(standard output)을 통해 합을 출력하는 코드입니다.
+    
+    \begin{itemize}[noitemsep]
+    
+        \item C11
+        \begin{minted}[frame=lines,baselinestretch=1.2,bgcolor=white,linenos]{c}
+#include <stdio.h>
+
+int main() {
+    int a, b;
+    scanf("%d %d", &a, &b);
+    printf("%d\n", a + b);
+    return 0;
+}
+        \end{minted}
+
+        \item C++17
+        \begin{minted}[frame=lines,baselinestretch=1.2,bgcolor=white,linenos]{cpp}
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    cout << a + b << endl;
+    return 0;
+}
+        \end{minted}
+        
+        \item Java 15
+        \begin{minted}[frame=lines,baselinestretch=1.2,bgcolor=white,linenos]{java}
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println(a + b);
+        sc.close();
+    }
+}
+        \end{minted}
+        
+        \item Python 3 / PyPy3
+        \begin{minted}[frame=lines,baselinestretch=1.2,bgcolor=white,linenos]{python}
+a, b = map(int, input().split())
+print(a + b)
+        \end{minted}
+        
+    \end{itemize}
+
+    \item 입출력 양이 많을 때는 위 코드를 사용한 입출력이 너무 오래 걸리기 때문에 다른 방식으로 입출력해야 합니다.
+
+    \item C11/C++17에서 \texttt{scanf}와 \texttt{printf}를 사용하는 경우, 입출력 속도는 문제를 해결할 수 있을 정도로 충분히 빠릅니다.
+    \item C++17에서 \texttt{cin}과 \texttt{cout}을 사용하는 경우, 입출력 전에 \texttt{ios\_base::sync\_with\_stdio(false);}와 \texttt{cin.tie(nullptr);}를 사용하여야 합니다. 단, 이 이후에는 \texttt{cin}, \texttt{cout} 계열 함수와 \texttt{scanf}, \texttt{printf} 계열 함수를 섞어서 사용하면 안 됩니다. 또한, 개행문자로 \texttt{std::endl} 대신 \verb$"\n"$을 사용해 주세요. 
+
+    \item Java 15에서는 \texttt{BufferedReader}와 \texttt{BufferedWriter}를 사용하여야 합니다.
+    
+    \item Python 3 및 PyPy3 에서는 \texttt{input()} 대신 \verb$sys.stdin.readline().rstrip("\n")$을 사용하여야 합니다. 코드의 가장 위 부분에 \texttt{import sys} 와 \verb$input = lambda: sys.stdin.readline().rstrip("\n")$ 을 사용하여야 합니다.
+    
+    \item 아래 코드는 표준 입력(standard input)을 통해 문제의 개수 $T$를 입력받은 다음 $T$줄에 걸쳐 공백으로 구분된 두 정수를 입력으로 받아 표준 출력(standard output)을 통해 두 정수의 합을 총 $T$줄에 걸쳐 출력하는 코드입니다.
+
+    \begin{itemize}[noitemsep]
+        
+        \item C++17
+        \begin{minted}[frame=lines,baselinestretch=1.2,bgcolor=white,linenos]{cpp}
+#include <iostream>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T;
+    cin >> T;
+    for(int i=1; i<=T; i++){
+        int a, b;
+        cin >> a >> b;
+        cout << a + b << "\n"; // do not use endl
+    }
+    return 0;
+}
+        \end{minted}
+        
+        \item Java 15
+        \begin{minted}[frame=lines,baselinestretch=1.2,bgcolor=white,linenos]{java}
+import java.util.*;
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int T = Integer.parseInt(br.readLine());
+        for(int i=1; i<=T; i++){
+            String[] temp = br.readLine().split(" ");
+            int a = Integer.parseInt(temp[0]);
+            int b = Integer.parseInt(temp[1]);
+            bw.write(String.valueOf(a + b) + "\n");
+        }
+        br.close();
+        bw.close();
+    }
+}
+        \end{minted}
+        
+        \item Python 3 / PyPy3
+        \begin{minted}[frame=lines,baselinestretch=1.2,bgcolor=white,linenos]{python}
+import sys
+input = lambda: sys.stdin.readline().rstrip("\n")
+
+T = int(input())
+for _ in range(T):
+    a, b = map(int, input().split())
+    print(a + b)
+        \end{minted}
+        
+    \end{itemize}
+	
+\end{itemize}

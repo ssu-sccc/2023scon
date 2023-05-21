@@ -1,0 +1,51 @@
+\def\probno{E}
+\def\probtitle{prlong longf}
+
+\section{\probno{}. \probtitle{}}
+
+\begin{frame} % No title at first slide
+    \sectiontitle{\probno{}}{\probtitle{}}
+    \sectionmeta{
+        \texttt{string, bruteforcing, dp}\\
+        출제진 의도 -- \textbf{\color{acsilver}Medium}
+    }
+    \begin{itemize}
+        \item 처음 푼 팀: \textbf{스콘빨리먹기대회우승팀}, 18분
+        \item 처음 푼 팀(Open Contest): \textbf{xiaowuc1}, 13분
+        \item 출제자: 이성서
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{}}
+    \begin{itemize}
+        \item 두 가지 풀이가 존재합니다.
+
+        \begin{enumerate}
+            \item 완전 탐색을 이용한 $O(2^{N/4})$ 풀이
+            \item 동적 계획법을 이용한 $O(N)$ 풀이
+        \end{enumerate}
+
+        \item 차례대로 설명합니다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{} - 완전 탐색}
+    \begin{itemize}
+        \item 풀이 1.
+        \item 문자열에서 \texttt{longlong} 중 일부를 골라서 \texttt{int}로 변환하는 방법의 수를 구하는 문제입니다.
+        \item $N \leq 80$ 이므로 \texttt{long}은 최대 $80/4=20$번 등장합니다.
+        \item 정답이 $2^{20} = 1\,048\,576$ 이하로 충분히 작으므로, 모든 방법을 시도하는 완전 탐색으로 정답을 구할 수 있습니다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{} - 동적 계획법}
+    \begin{itemize}
+        \item 풀이 2.
+        \item \texttt{\textbf{longlong}double\textbf{longlong}}처럼 분리되어 있는 \texttt{longlong...}은 서로 독립입니다.
+        \item 따라서 연속한 \texttt{longlong...}마다 따로 경우의 수를 계산한 뒤 모두 곱하면 됩니다.
+        \item $D[n]$을 \texttt{long}이 $n$개 연속으로 붙어 있는 문자열을 복원하는 경우의 수라고 정의하면,
+        \item $D[0] = D[1] = 1$,
+        \item $D[n] = D[n-1] + D[n-2]$이라는 점화식이 성립합니다.
+        \item 따라서 동적 계획법을 이용해 $O(N)$ 시간에 정답을 구할 수 있습니다.
+    \end{itemize}
+\end{frame}

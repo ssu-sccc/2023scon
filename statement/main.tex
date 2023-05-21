@@ -1,0 +1,110 @@
+\documentclass [11pt, a4paper, oneside] {article}
+\usepackage[korean]{olymp}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[hangul]{kotex}
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{import}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{minted}
+
+\usepackage{tikz}
+
+
+\definecolor{boj}{RGB}{0,118,191}
+\definecolor{ucpc-orange}{RGB}{255,153,0}
+\definecolor{acgreen}{RGB}{0,159,107}
+\definecolor{wared}{RGB}{231,76,60}
+
+\definecolor{acbronze}{RGB}{173,86,0}
+\definecolor{acsilver}{RGB}{67,95,122}
+\definecolor{acgold}{RGB}{236,154,0}
+\definecolor{acplatinum}{RGB}{39,226,164}
+\definecolor{acdiamond}{RGB}{0,180,252}
+\definecolor{acruby}{RGB}{255,0,98}
+
+%\renewcommand{\baselinestretch}{1.0}
+
+
+\contest{2023 Soongsil Programming Contest}{SCCC@SoongsilU, Sponsors: Hyundai Mobis, Startlink}{May 20th, 2023}
+
+\begin{document}
+
+    \vspace*{15mm}
+    \begin{center}
+        \Huge
+        \textbf{2023 Soongsil Programming Contest}
+
+        \vspace{25mm}
+        Official Problem Set
+        
+        \vspace{20mm}
+        \includegraphics[width=0.375\linewidth]{soongsil-emblem.jpg}
+        
+        \vspace{45mm}
+        Sponsored By:
+    
+	\includegraphics[height=15mm]{mobis.jpg}
+        \includegraphics[height=15mm]{startlink-logo-black.png}
+     
+    \end{center}
+    
+    \pagebreak
+
+    \import{./}{language.tex} \pagebreak
+    \import{./}{rule.tex} \pagebreak
+
+    \begin{center}
+    
+    \vspace*{21mm}
+    {
+        \Huge
+        \textbf{2023 Soongsil Programming Contest}
+        
+        \vspace{30mm}
+        Problem List
+        \vspace{10mm}
+    }
+    
+    \begin{tabular}{|c|l|r|r|r|}
+    \hline
+    \# & Problem Name & Time limit & Memory limit & Page \\ \hline
+        A & 정보섬의 대중교통 & 2 seconds & 1024MiB & \phantom{0}8 -- \phantom{0}8 \\ \hline
+        B & 팀명 정하기 & 2 seconds & 1024MiB & \phantom{0}9 -- 10 \\ \hline
+        C & 등차수열의 합 & 3 seconds & 1024MiB & 11 -- 11 \\ \hline
+        D & 선택 정렬의 이동 거리 & 5 seconds & 1024MiB & 12 -- 12 \\ \hline
+        E & prlong longf & 2 seconds & 1024MiB & 13 -- 14 \\ \hline
+        F & 안전한 건설 계획 & 2 seconds & 1024MiB & 15 -- 17 \\ \hline
+        G & Traveling SCCC President & 2 seconds & 1024MiB & 18 -- 19 \\ \hline
+        H & SCCC 신입 부원 모집하기 & 2 seconds & 1024MiB & 20 -- 21 \\ \hline
+        I & 산책과 쿼리 & 3 seconds & 1024MiB & 22 -- 23 \\ \hline
+        J & 아이템 & 3 seconds & 1024MiB & 24 -- 24 \\ \hline
+    \end{tabular}
+    
+    문제지에 있는 문제가 총 10문제가 맞는지 확인하시길 바랍니다.
+
+    모든 문제는 C++17, Java 15, PyPy3으로 풀 수 있음을 보장합니다. (단, Python 3는 보장하지 않음)
+
+    I번 문제와 J번 문제는 입출력 양이 매우 많습니다. 2--4페이지에 있는 언어 가이드를 참고하시길 바랍니다.
+    
+    \end{center}
+    	
+    \pagebreak
+    
+    \import{public-transport/}{main.tex} \pagebreak
+    \import{team-name/}{main.tex} \pagebreak
+    \import{seq-sum/}{main.tex} \pagebreak
+    \import{selection-sort/}{main.tex} \pagebreak
+    \import{printf/}{main.tex} \pagebreak
+    \import{safe-construct/}{main.tex} \pagebreak
+    \import{tsp/}{main.tex} \pagebreak
+    \import{sccc-recruit/}{main.tex} \pagebreak
+    \import{walk-query/}{main.tex} \pagebreak
+    \import{item/}{main.tex} \pagebreak
+    
+\end{document}

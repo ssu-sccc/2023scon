@@ -1,0 +1,32 @@
+\def\probno{G}
+\def\probtitle{Traveling SCCC President}
+
+\section{\probno{}. \probtitle{}}
+
+\begin{frame} % No title at first slide
+    \sectiontitle{\probno{}}{\probtitle{}}
+    \sectionmeta{
+        \texttt{mst}\\
+        출제진 의도 -- \textbf{\color{acgold}Hard}
+    }
+    \begin{itemize}
+        \item 처음 푼 팀: \textbf{스콘빨리먹기대회우승팀}, 55분
+        \item 처음 푼 팀(Open Contest): \textbf{aeren}, 25분
+        \item 출제자: 나정휘
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{}}
+    \begin{itemize}
+        \item 순간 이동을 하지 않고 직접 이동해야 하는 간선을 생각해 봅시다.
+        \item 이 간선들은 연결 그래프를 이뤄야 하므로 정답은 MST의 가중치보다 크거나 같습니다.
+        \vspace{3mm}
+        \item 이제 가중치가 MST와 동일한 해가 존재함을 보일 것입니다.
+        \item MST를 만든 다음 1번 정점에서 시작하는 DFS를 수행합시다.
+        \item 방문하지 않은 정점으로 이동할 때 직접 이동하고 다시 돌아올 때 순간 이동을 하면
+        \item 정확히 MST와 동일한 가중치로 모든 정점을 방문할 수 있습니다.
+        \vspace{3mm}
+        \item 모든 정점을 한 번씩 방문한 이후에는 순간이동만을 사용해 시간의 소요 없이 모든 회의를 진행할 수 있습니다.
+        \item MST는 프림 알고리즘이나 크루스칼 알고리즘 등을 이용해 $O(M \log M)$에 구할 수 있습니다.
+    \end{itemize}
+\end{frame}

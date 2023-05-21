@@ -1,0 +1,49 @@
+\def\probno{J}
+\def\probtitle{아이템}
+
+\section{\probno{}. \probtitle{}}
+
+\begin{frame} % No title at first slide
+    \sectiontitle{\probno{}}{\probtitle{}}
+    \sectionmeta{
+        \texttt{greedy, trie, dfs}\\
+        출제진 의도 -- \textbf{\color{acplatinum}Challenging}
+    }
+    \begin{itemize}
+        \item 처음 푼 팀: \textbf{N/A}, N/A분
+        \item 처음 푼 팀(Open Contest): \textbf{Lawali}, 49분
+        \item 출제자: 오주원
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{}}
+    \begin{itemize}
+        \item 아이템을 $k$개 획득하면 $2^k$씩 이동할 수 있습니다.
+        \item 즉, $2^k$로 나눈 나머지가 같은 좌표로만 이동할 수 있습니다.
+        \item 어떤 정수를 $2^k$로 나눈 나머지는 이진법으로 나타내었을 때 하위 $k$비트와 동일합니다.
+        \item 따라서 $2^{k-1}, 2^{k-2}, \cdots, 2^0$을 나타내는 비트가 모두 같은 좌표로만 이동할 수 있습니다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{}}
+    \begin{itemize}
+        \item 아이템의 좌표를 하위 비트부터 차례대로 삽입해서 이진 트라이(Binary Trie)를 구축합시다.
+        \item 아이템을 획득해서 이동 거리가 2배가 되는 것은,
+        \item 트라이에서 해당 아이템의 좌표가 저장된 서브트리로 한 칸 이동한 다음,
+        \item 서브트리 안에 있는 아이템만 추가로 획득할 수 있는 것과 동일합니다.
+        % \item 아이템을 획득하는 것은 트라이에서 해당 좌표의 서브트리로 한 칸 이동하는 것과 같습니다.
+        \vspace{3mm}
+        \item 트라이의 각 정점에서, 그 정점을 루트로 하는 서브트리 안에 있는 아이템의 개수를 저장합시다.
+        \item 트라이 위에서 DFS를 이용해 정답을 구할 것입니다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\probno{}. \probtitle{}}
+    \begin{itemize}
+        \item DFS에서 자식 정점으로 내려가면 더이상 반대편 자식의 서브트리에 있는 아이템을 얻지 못하므로, 내려가는 쪽의 서브트리 반대편에 있는 아이템을 최대한 사용하는 것이 이득입니다.
+        \item DFS를 하면서 각 정점에 도달할 때마다, 그 정점의 서브트리에서 선택할 예정인 아이템의 개수 $t$를 관리합시다.
+        \item 자식 정점으로 내려갈 때마다 $t$를 반대편 자식의 서브트리와 최대한 많이 매칭시키는 것이 이득입니다.
+        \item 따라서, 반대편 서브트리에 아이템이 $s$개 있다면 $\min(t, s)$개는 반대쪽과 매칭시키고, 내려갈 서브트리에서는 (남은 $t-\min(t,s)$개) + (다음으로 먹을 아이템 1개)를 새로운 $t$값으로 설정하고 재귀적으로 진행하면 됩니다.
+        \item 트라이의 정점은 $O(N \log X)$개이므로 전체 시간 복잡도는 $O(N \log X)$입니다.\\이때 $X=10^{18}$입니다.
+    \end{itemize}
+\end{frame}
